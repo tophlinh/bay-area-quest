@@ -1,3 +1,3 @@
-# Bay Quest-Author the Bay Day
+# bay-area-quest
 
 Initial project scaffold published to GitHub.
