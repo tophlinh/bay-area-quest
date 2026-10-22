@@ -1,0 +1,4 @@
+- Cozy cute pixel art, warm pastel sunset over San Francisco Bay, Golden Gate Bridge
+- Palette: peach, lavender, soft pink, teal water, cream UI
+- UI: chunky pixel buttons drawn in CSS with Press Start-like font
+- Assets: bay background

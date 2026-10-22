@@ -1,0 +1,16 @@
+{
+  "name": "Bay Quest",
+  "revisionLabel": "Author the Bay Day",
+  "description": "Create a cute, cozy pixel-art interactive game that opens with “Adventure awaits, join Victoria/Linh’s quest in the Bay?” Present Yes and No choices. Each No click makes the button’s playful, teasing text escalate through lines like “Are you sure?”, “Are you really sure?”, “Bruh come on”, and “Stop being an unc”, while Yes starts the adventure. After choosing Yes, let the player pick a Bay-area outing from choices such as corgi cafe, magic lesson, tarot card reading, Indonesian coffee, or going for a run.",
+  "mode": "Universal",
+  "exportDate": "2026-10-22T22:35:14.031Z",
+  "rosebudBuiltInSplash": {
+    "present": true,
+    "version": 1
+  },
+  "assetCount": 18,
+  "assetTypes": [
+    "image",
+    "audio"
+  ]
+}

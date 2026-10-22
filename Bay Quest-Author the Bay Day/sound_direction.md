@@ -1,0 +1,3 @@
+- Gentle, loopable bardcore / Renaissance faire folk bed: warm lute or cittern, soft recorder/flute, light dulcimer, and restrained hand percussion; cozy, cheerful, and low-fatigue
+- SFX: soft pixel blip on click (procedural), happy jingle on choice
+- Music starts on first click; mute button top-right
