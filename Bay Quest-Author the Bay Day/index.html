@@ -91,7 +91,15 @@
       .story-stop-name { font-size: 9px; line-height: 1.6; overflow-wrap: anywhere; }
       .story-map-note { margin-bottom: 18px; }
       .opt.sel { background: #d9c9df; }
-      #mute { position: absolute; top: 16px; right: 16px; font-size: 12px; background: #fff8ec; }
+      #mute {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 12px;
+        background: #fff8ec;
+        opacity: 0.9;
+        z-index: 12;
+      }
       .confetti { position: absolute; width: 10px; height: 10px; pointer-events: none; top: -20px; }
       .petal-layer {
         position: fixed;
@@ -123,6 +131,15 @@
       @media (max-width: 760px) {
         .card { width: calc(100% - 28px); padding: 22px 14px; box-sizing: border-box; }
         .card.outings-screen { max-height: calc(100vh - 20px); }
+        #mute {
+          top: 10px;
+          right: 10px;
+          font-size: 10px;
+          padding: 8px 10px;
+          border-width: 3px;
+          box-shadow: 2px 2px 0 rgba(84, 55, 65, .4);
+          opacity: 0.75;
+        }
         h1 { font-size: 18px; line-height: 1.5; }
         p { font-size: 10px; line-height: 1.6; }
         .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -136,6 +153,15 @@
       @media (max-width: 480px) {
         .card { width: calc(100% - 20px); padding: 18px 10px; }
         .card.outings-screen { max-height: calc(100vh - 14px); }
+        #mute {
+          top: auto;
+          right: 8px;
+          bottom: 8px;
+          font-size: 9px;
+          padding: 7px 9px;
+          border-width: 2px;
+          opacity: 0.68;
+        }
         .grid { grid-template-columns: 1fr; gap: 9px; }
         .opt { font-size: 9px; padding: 10px 8px; }
         .card.itinerary-screen { padding: 16px 12px; }
