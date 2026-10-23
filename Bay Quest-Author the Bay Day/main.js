@@ -240,10 +240,11 @@ function submitResponseToSheet(choices) {
   };
 
   // Fire-and-forget so gameplay never blocks if the webhook is slow/offline.
+  // Send as a simple request to avoid CORS preflight issues with Apps Script.
   fetch(SHEET_WEBHOOK_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
+    keepalive: true,
   }).catch(() => {});
 }
 
