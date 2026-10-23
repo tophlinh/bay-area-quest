@@ -108,6 +108,46 @@ muteBtn.onclick = (event) => {
   }
 };
 
+function startPetalShower() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+  const layer = document.createElement('div');
+  layer.className = 'petal-layer';
+  document.body.appendChild(layer);
+
+  let activePetals = 0;
+  const maxPetals = 36;
+
+  function spawnPetal() {
+    if (activePetals >= maxPetals) {
+      return;
+    }
+    const petal = document.createElement('div');
+    petal.className = 'pixel-petal';
+    petal.style.left = `${Math.random() * 100}%`;
+    petal.style.setProperty('--drift', `${(Math.random() - 0.5) * 180}px`);
+    petal.style.animationDuration = `${6 + Math.random() * 4}s`;
+    petal.style.animationDelay = `${Math.random() * 0.5}s`;
+    activePetals += 1;
+    layer.appendChild(petal);
+    petal.addEventListener('animationend', () => {
+      activePetals -= 1;
+      petal.remove();
+    }, { once: true });
+  }
+
+  for (let i = 0; i < 14; i += 1) {
+    spawnPetal();
+  }
+  window.setInterval(() => {
+    const burst = Math.random() < 0.35 ? 2 : 1;
+    for (let i = 0; i < burst; i += 1) {
+      spawnPetal();
+    }
+  }, 380);
+}
+
 function render(html) {
   root.innerHTML = '';
   root.appendChild(muteBtn);
@@ -123,6 +163,7 @@ function showIntro() {
   const card = render(`
     <h1><img class="intro-scroll" src="assets/image-7.png" alt="">Adventure awaits!<br>Join Victoria/Linh's quest in the Bay?</h1>
     <p>a cozy little invitation</p>
+    <img class="intro-photo" src="assets/intro-uncs.png" alt="unc adventurers in sunglasses">
     <div class="row">
       <button class="yes">Yes!</button>
       <button class="no">No</button>
@@ -248,4 +289,5 @@ function confetti() {
   }
 }
 
+startPetalShower();
 showIntro();
