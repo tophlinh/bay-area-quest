@@ -199,6 +199,7 @@ function showOutings() {
     <div class="row" style="min-height:0;margin-top:24px">
       <button class="yes go">Let's go! →</button>
     </div>`);
+  card.classList.add('outings-screen');
   card.querySelectorAll('.opt').forEach((btn) => {
     btn.onclick = () => {
       const index = Number(btn.dataset.i);
