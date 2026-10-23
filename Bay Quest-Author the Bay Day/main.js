@@ -219,7 +219,7 @@ function showFinal(choices) {
         </article>`).join('')}
       </div>
     </div>
-    <p class="story-map-note">see you soon, adventurer ✨</p>
+    <p class="story-map-note">see you soon, unc adventurer ✨✨✨</p>
     <button class="no again">Start over</button>`);
   card.classList.add('itinerary-screen');
   card.querySelector('.again').onclick = () => {
