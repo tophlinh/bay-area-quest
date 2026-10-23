@@ -27,6 +27,7 @@ const music = new Audio('assets/audio/bay-bardcore-adventure.mp3');
 music.loop = true;
 music.volume = 0.4;
 music.preload = 'none';
+const SHEET_WEBHOOK_URL = window.BAY_QUEST_WEBHOOK_URL || '';
 const jingle = new Audio('assets/audio/yay-jingle.mp3');
 jingle.preload = 'none';
 let muted = false;
@@ -218,10 +219,32 @@ function showOutings() {
       card.querySelector('p').textContent = 'pick at least one, silly!';
       return;
     }
+    const selectedChoices = [...picked].map((i) => OUTINGS[i]);
+    submitResponseToSheet(selectedChoices);
     playJingle();
     confetti();
-    showFinal([...picked].map((i) => OUTINGS[i]));
+    showFinal(selectedChoices);
   };
+}
+
+function submitResponseToSheet(choices) {
+  if (!SHEET_WEBHOOK_URL) {
+    return;
+  }
+
+  const payload = {
+    submittedAt: new Date().toISOString(),
+    choices: choices.map((choice) => choice.name),
+    locations: choices.map((choice) => choice.location),
+    totalChoices: choices.length,
+  };
+
+  // Fire-and-forget so gameplay never blocks if the webhook is slow/offline.
+  fetch(SHEET_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(() => {});
 }
 
 function showFinal(choices) {
